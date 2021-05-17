@@ -6,13 +6,13 @@ slogan - Automatic flashcards from your favorite media
 
 ## Table of Contents
 
-- [Description](##Description)
-- [Installation](##Installation)
-- [Usage](##Usage)
-    - [GUI Usage](##GUI-Usage)
-    - [Command Line Usage](##Command-Line-Usage)
-- [Credits](##Credits)
-- [License](##License)
+- [Description](#Description)
+- [Installation](#Installation)
+- [Usage](#Usage)
+    - [GUI Usage](#GUI-Usage)
+    - [Command Line Usage](#Command-Line-Usage)
+- [Credits](#Credits)
+- [License](#License)
 
 ## Description
 
