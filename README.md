@@ -15,23 +15,21 @@ Automatic flashcards from your favorite media
 
 ## Description
 
-OCRFlashcard is an application designed to create [Anki](https://apps.ankiweb.net/) flashcards out of images, PDFs, and text files containing Japanese text. 
-
-Kanji flashcard example / Word flashcard example / Sentence flashcard example all in same line
+OCRFlashcard is an application designed to create [Anki](https://apps.ankiweb.net/) flashcards out of images, PDFs, and text files containing Japanese text by utilizing pytesseract. 
 
 ## Installation
 
 First, the repository must be downloaded and a working python installation added to the user's PATH (version 3.9+). Once the repository is downloaded, navigate to it using the console. Once inside the directory, run the following command:
 
-`pip install -r requirements.txt`
+    pip install -r requirements.txt
 
 After running the command, navigate to the data folder within the directory. From here, simply run
 
-`python ocr_flashcard_gui`
+    python ocr_flashcard_gui
 
 to open the GUI version of the program, or
 
-`python ocr_flashcard`
+    python ocr_flashcard
 
 along with the appropriate arguments for the command line version.
 
@@ -42,6 +40,12 @@ along with the appropriate arguments for the command line version.
 Utilizing the GUI is the recommended way to use this application.
 
 #### Starting the Program
+
+To start the program, simply run:
+
+    python ocr_flashcard_gui.py
+
+Make sure you have a working python version added to your path!
 
 #### Adding Files
 
@@ -87,29 +91,29 @@ What flashcards get created is determined by the options the user selects. There
 
 ##### Word Flashcard Options
 
-- <u>Recall + Recognition</u> : Create a recognition and a recall flashcard for each word.
-- <u>Recognition</u> : Create only a recognition flashcard for each word.
-- <u>None</u> : Do not create word flashcards
+- Recall + Recognition : Create a recognition and a recall flashcard for each word.
+- Recognition : Create only a recognition flashcard for each word.
+- None : Do not create word flashcards
 
-- <u>Allow duplicate words in separate sentences</u> : When checked, the program will only look for duplicate words in each sentence and not in the overall text.
+- Allow duplicate words in separate sentences : When checked, the program will only look for duplicate words in each sentence and not in the overall text.
 
-  ​	Ex: "There was a dog. The dog was big like my dog."
+  	Ex: "There was a dog. The dog was big like my dog."
 
-  ​	Cards created when option is disabled:
+  	Cards created when option is disabled:
 
-  ​		There, was, a, dog, The, big, like, my
+  		There, was, a, dog, The, big, like, my
 
-  ​	Cards created when option is enabled:
+  	Cards created when option is enabled:
 
-  ​		There, was, a, dog, The, dog, was, big, like, my
+  		There, was, a, dog, The, dog, was, big, like, my
 
   This option is potentially useful when wanting to see words in different contexts, however, it does create many more flashcards.
 
 ##### Sentence Flashcard Options
 
-- <u>[     ] Random words</u> : Creates cloze deletion flashcards for some amount of random words within the sentence. The amount of words by default is 3, but can be changed by the user.
-- <u>Each word</u> : Creates a cloze deletion flashcard for each word in the sentence.
-- <u>None</u> : Do not create cloze deletion flashcards.
+- [  ] Random words : Creates cloze deletion flashcards for some amount of random words within the sentence. The amount of words by default is 3, but can be changed by the user.
+- Each word : Creates a cloze deletion flashcard for each word in the sentence.
+- None : Do not create cloze deletion flashcards.
 
 #### Starting the Application
 
@@ -133,29 +137,21 @@ python ocr_flashcard.py pathToFile--languageType--boundaryBox kanjiOptions, word
 
 Note: The following file commands must be connected using "--" and can be repeated as many times as the user wishes for all the files they wish to process.
 
-##### File Arguments
+#### File Arguments
 
-<u>pathToFile</u> : This is the path to the file the user wishes to extract text from.
+**pathToFile** : This is the path to the file the user wishes to extract text from.
 
-<u>languageType</u> : This is the language type of the file. If the file's text is horizontal (Left -> Right), the user will enter "jpn" for the language option. If the file's text is vertical (Top -> Bottom), the user will enter "jpn_vert" for their language.
+**languageType** : This is the language type of the file. If the file's text is horizontal (Left -> Right), the user will enter "jpn" for the language option. If the file's text is vertical (Top -> Bottom), the user will enter "jpn_vert" for their language.
 
-boundaryBox : This is the crop boundary the user wishes to apply to their file. If the user does not wish to apply a boundary, they will write "None". If the user wishes to apply a boundary, they will write four comma separated numbers. These numbers will represent the amount in pixels they wish to crop in the respective directions. 
+**boundaryBox** : This is the crop boundary the user wishes to apply to their file. If the user does not wish to apply a boundary, they will write "None". If the user wishes to apply a boundary, they will write four comma separated numbers. These numbers will represent the amount in pixels they wish to crop in the respective directions. 
 
 ​	Ex: Left, Top, Right, Bottom -> 50, 500, 50, 20
 
 ​	This will crop 50 pixels off of the left, 500 pixels off of the top, 50 pixels off of the right, and 20 pixels off 	of the bottom.
 
-##### Other Options
+#### Other Options
 
-<u>kanjiOptions</u> : There are three options for kanjiOptions - 0, 1, or 2. 
-
-0 - No flashcards created.
-
-1 - Recognition flashcards created.
-
-2 - Recall + Recognition flashcards created.
-
-<u>wordOptions</u> : The wordOptions argument should be 2 characters long. The first of the two characters follows the same rules as the kanjiOptions argument.
+**kanjiOptions** : There are three options for kanjiOptions - 0, 1, or 2. 
 
 0 - No flashcards created.
 
@@ -163,21 +159,29 @@ boundaryBox : This is the crop boundary the user wishes to apply to their file. 
 
 2 - Recall + Recognition flashcards created.
 
-The second part of the argument will be a 1 or 0 and determines whether or not duplicate words will be kept track of on a sentence-by-sentence basis or throughout the file.
+**wordOptions** : The wordOptions argument should be 2 characters long. The first of the two characters follows the same rules as the kanjiOptions argument.
+
+0 - No flashcards created.
+
+1 - Recognition flashcards created.
+
+2 - Recall + Recognition flashcards created.
+
+The second part of the argument will be a 1 or 0 and determines whether or not duplicate words will be kept track of     on a sentence-by-sentence basis or throughout the file.
 
 0 - Keep track of duplicate words throughout the files. (No duplicate word cards)
 
 1 - Keep track of duplicate words on a sentence-by-sentence basis. (Duplicate word cards will be made if the words appear within different sentences)
 
-<u>clozeAmount</u> : This determines how many cloze flashcards will be created per sentence. This argument starts with a 2, 1 or 0.
+**clozeAmount** : This determines how many cloze flashcards will be created per sentence. This argument starts with a 2, 1 or 0.
 
- 0 - No cloze flashcards will be created.
+0 - No cloze flashcards will be created.
 
 1 - A cloze flashcard will be created for each word.
 
 2 - A cloze flashcard will be created for __ random words. The amount of random flashcards is determined by the number entered after the number 2. Ex: 24 will pick 4 random words in the sentence to make cloze flashcards out of.
 
-<u>enhance</u> : This option determines whether or not the user's images will be doubled in size before the image is processed for text. This option will be a 0 or a 1.
+**enhance** : This option determines whether or not the user's images will be doubled in size before the image is processed for text. This option will be a 0 or a 1.
 
 0 - The image will not be enhanced.
 
@@ -195,13 +199,13 @@ Change the "Fields separated by:" field to a tab. You can do this by entering \t
 
 Check the "Allow HTML in fields" checkbox.
 
-Your field mapping should now show the following for the fields.
+Your field mapping should now show the following for the fields:
 
-Field 1 of file is:	mapped to Front
+    Field 1 of file is:	mapped to Front
 
-Field 2 of file is:	mapped to Back
+    Field 2 of file is:	mapped to Back
 
-Field 3 of file is:	mapped to Tags
+    Field 3 of file is:	mapped to Tags
 
 After confirming that everything is correct, just click Import!
 
