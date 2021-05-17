@@ -2,7 +2,7 @@
 
 ## Image
 
-slogan - Automatic flashcards from your favorite media
+Automatic flashcards from your favorite media
 
 ## Table of Contents
 
