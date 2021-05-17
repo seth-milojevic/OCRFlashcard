@@ -9,6 +9,7 @@ Automatic flashcards from your favorite media
 - [Usage](#Usage)
     - [GUI Usage](#GUI-Usage)
     - [Command Line Usage](#Command-Line-Usage)
+    - [Importing Flashcards into Anki](#Importing-Flashcards-into-Anki)
 - [Credits](#Credits)
 - [License](#License)
 
@@ -181,6 +182,28 @@ The second part of the argument will be a 1 or 0 and determines whether or not d
 0 - The image will not be enhanced.
 
 1 - The image will be enhanced.
+
+## Importing Flashcards into Anki
+
+The flashcards created by the program will be output into a file named flashcards.txt one directory above the python script. To import these files into Anki:
+
+Open Anki and click "Import..." in the top left.
+
+Locate the "flashcards.txt" file and select it.
+
+Change the "Fields separated by:" field to a tab. You can do this by entering \t into the box.
+
+Check the "Allow HTML in fields" checkbox.
+
+Your field mapping should now show the following for the fields.
+
+Field 1 of file is:	mapped to Front
+
+Field 2 of file is:	mapped to Back
+
+Field 3 of file is:	mapped to Tags
+
+After confirming that everything is correct, just click Import!
 
 ## Credits
 
