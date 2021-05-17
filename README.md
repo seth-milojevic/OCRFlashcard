@@ -1,7 +1,5 @@
 # **OCRFlashcard**
 
-## Image
-
 Automatic flashcards from your favorite media
 
 ## Table of Contents
