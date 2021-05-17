@@ -9,8 +9,8 @@ slogan - Automatic flashcards from your favorite media
 - [Description](##Description)
 - [Installation](##Installation)
 - [Usage](##Usage)
-    - [GUI Usage](##GUI Usage)
-    - [Command Line Usage](##Command Line Usage)
+    - [GUI Usage](##GUI-Usage)
+    - [Command Line Usage](##Command-Line-Usage)
 - [Credits](##Credits)
 - [License](##License)
 
