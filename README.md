@@ -19,17 +19,24 @@ OCRFlashcard is an application designed to create [Anki](https://apps.ankiweb.ne
 
 ## Installation
 
-First, the repository must be downloaded and a working python installation added to the user's PATH (version 3.9+). Once the repository is downloaded, navigate to it using the console. Once inside the directory, run the following command:
+After downloading the repository, there are a couple prerequisites for the program to run.
+
+- [Python 3.9+](https://www.python.org/downloads/)
+- [GCC](http://gcc.gnu.org/releases.html)
+- [Tesseract 4.1.1+](https://github.com/tesseract-ocr/tessdoc)
+- Tesseract languages [jpn](https://github.com/tesseract-ocr/tessdata/blob/master/jpn.traineddata) and [jpn_vert](https://github.com/tesseract-ocr/tessdata/blob/master/jpn_vert.traineddata)
+
+Once the repository is downloaded, navigate to it using the console. Once inside the directory, run the following command:
 
     pip install -r requirements.txt
 
 After running the command, navigate to the data folder within the directory. From here, simply run
 
-    python ocr_flashcard_gui
+    python ocr_flashcard_gui.py
 
 to open the GUI version of the program, or
 
-    python ocr_flashcard
+    python ocr_flashcard.py
 
 along with the appropriate arguments for the command line version.
 
@@ -99,13 +106,13 @@ What flashcards get created is determined by the options the user selects. There
 
   	Ex: "There was a dog. The dog was big like my dog."
 
-  	Cards created when option is disabled:
+    	Cards created when option is disabled:
 
-  		There, was, a, dog, The, big, like, my
+    		There, was, a, dog, The, big, like, my
 
-  	Cards created when option is enabled:
+    	Cards created when option is enabled:
 
-  		There, was, a, dog, The, dog, was, big, like, my
+    		There, was, a, dog, The, dog, was, big, like, my
 
   This option is potentially useful when wanting to see words in different contexts, however, it does create many more flashcards.
 
@@ -202,9 +209,9 @@ Check the "Allow HTML in fields" checkbox.
 Your field mapping should now show the following for the fields:
 
     Field 1 of file is:	mapped to Front
-
+    
     Field 2 of file is:	mapped to Back
-
+    
     Field 3 of file is:	mapped to Tags
 
 After confirming that everything is correct, just click Import!
@@ -223,3 +230,4 @@ Resources were used from the following projects to make this possible:
 
 This project is licensed under the MIT license.
 
+Fred's Imagemagick script was used under his license, located within FRED_SCRIPT_LICENSE.txt
