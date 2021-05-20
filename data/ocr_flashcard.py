@@ -69,7 +69,10 @@ def remove_special(sentence):
 
 # Retrieve all of the sentences from the text retrieved from tesseract
 def get_sentences(passage):
-    return (sentence[:-1].replace(' ', '') for sentence in re.findall(sentenceRX, passage))
+    if len(passage.split('.')) > 1:
+        return (sentence.replace(' ', '') for sentence in passage.split('.'))
+    else:
+        return (sentence.replace(' ', '') for sentence in passage.split('。'))
 
 # Retrieve all of the words in their base and surface from by tokenizing the sentence
 def get_words(sentence):
@@ -256,7 +259,7 @@ def clean_image(boundary, image):
 
 imageTypes = {"jpg", "png", "ttf"}
 validLanguage = {"jpn", "jpn_vert"}
-special = ['.', ',', '、', '+', '*', '?', '^', '$', '(', ')', '[', ']', '{', '}', '|', chr(92)]
+special = ['.', ',', '、', '+', '*', '?', '^', '$', '(', ')', '[', ']', '{', '}', '「', '」', '|', chr(92)]
 kanjiSet = set()
 wordSet = set()
 basePath = os.path.abspath(os.path.dirname(__file__)) + "/"
@@ -264,7 +267,6 @@ basePath = os.path.abspath(os.path.dirname(__file__)) + "/"
 # Regex Compilations
 
 fileNameRX = re.compile(r'.+?(?=\.).')
-sentenceRX = re.compile(r'(.*?。)')
 kanjiRX = re.compile(r'[\u4e00-\u9faf]')
 readingRX = re.compile(r'\[.*\]')
 posDefRX = re.compile(r'\([0-9]\).*?/')
@@ -380,12 +382,15 @@ def main(files, kanjiOptions, wordOptions, clozeAmount, enhance):
                 # Remove special characters from sentence and pass to get_words
                 word_gen = get_words(remove_special(sentence))
                 # Enforce cloze options
-                if clozeAmount == -1 or clozeAmount > (len(word_gen) - 1):
+                if clozeAmount == -1:
                     clozeNum = list(range(len(word_gen)))
                 elif clozeAmount == 0:
                     clozeNum = []
                 else:
-                    clozeNum = random.sample(range(len(word_gen)-1), clozeAmount)
+                    try:
+                        clozeNum = random.sample(range(len(word_gen)-1), clozeAmount)
+                    except ValueError:
+                        clozeNum = list(range(len(word_gen)))
                 # Counter for cloze words
                 curNum = 0
                 # If duplicate words in separate sentences is enabled, clear the word set
