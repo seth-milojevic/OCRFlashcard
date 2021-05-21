@@ -226,8 +226,14 @@ Resources were used from the following projects to make this possible:
 
 [KANJIDIC Project](https://www.edrdg.org/wiki/index.php/KANJIDIC_Project)
 
+[EDICT Project](https://www.edrdg.org/wiki/index.php/JMdict-EDICT_Dictionary_Project)
+
+[KRADFILE](http://www.edrdg.org/krad/kradinf.html)
+
 ## License
 
 This project is licensed under the MIT license.
 
 Fred's Imagemagick script was used under his license, located within FRED_SCRIPT_LICENSE.txt
+
+KANJIDIC, KRADFILE and EDICT were used under their [license](http://www.edrdg.org/edrdg/newlic.html)
